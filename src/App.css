@@ -12,3 +12,13 @@
   background-color: rgb(246, 246, 239);
   pointer-events: none;
 }
+
+.main-page-header-container{
+  background-color: rgb(255,102,1);
+}
+
+.main-page-header-container > h1{
+  font-family: Verdana, Geneva, sans-serif;
+  padding: 2px;
+  font-size: 10pt;
+}
