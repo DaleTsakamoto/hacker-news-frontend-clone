@@ -1,19 +1,15 @@
-import './App.css';
+import Homepage from './components/Homepage'
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="main-page-container">
-      <div className="main-page-center">
-        <div className='main-page-header-container'>
-          <h1>Hacker News</h1>
-        </div>
-        <div className='main-page-body'>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        </div>
-      </div>
-    </div>
+    <>
+      <Switch>
+        <Route path="/">
+            <Homepage/>
+        </Route>
+      </Switch>
+      </>
   );
 }
 
