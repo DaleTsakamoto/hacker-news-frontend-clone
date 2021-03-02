@@ -28,6 +28,7 @@ useEffect(() => {
             <img src={`../logo.png`} className='main-page-header-logo'/>
           </a>
           <h1>Hacker News</h1>
+          <a className='main-page-header-subtitles' href='/new'>new</a>
         </div>
         <div className='main-page-body'>
           <ol className='main-page-list-container'>
@@ -35,9 +36,16 @@ useEffect(() => {
               // let currentTime = Date.now()
               // let ms = (currentTime - sto.time)
               let date = new Date(sto.time * 1000).toString()
+              let showUrl = ''
+              if (sto.url) {
+                showUrl = sto.url.split('/')[2]
+              }
               return (
                 <>
-                  <li key={idx}>{sto.title}</li>
+                  <div className='main-page-ind-title'>
+                    <li key={idx}>{sto.title}</li>
+                    <a href={sto.url}>({showUrl})</a>
+                  </div>
                   <div className='main-page-ind-story-stats'>
                     <p className='main-page-ind-story-score'> {sto.score} points by {sto.by} {date}</p>  
                   </div>
