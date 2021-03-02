@@ -41,13 +41,21 @@
   z-index: 2;
 }
 
-.main-page-header-subtitles{
+.main-page-header-subtitles, .main-page-header-subtitles-no-line{
   text-decoration: none;
   color: black;
   font-size: 10pt;
   cursor: pointer;
 }
 
+#main-page-header-login{
+  text-decoration: none;
+  color: black;
+  font-size: 10pt;
+  cursor: pointer;
+  text-align: end;
+  margin-left: auto;
+}
 .main-page-header-subtitles::after{
   content: '|';
   margin-left: 2px;

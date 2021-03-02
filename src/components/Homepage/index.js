@@ -29,6 +29,13 @@ useEffect(() => {
           </a>
           <h1>Hacker News</h1>
           <a className='main-page-header-subtitles' href='/new'>new</a>
+          <a className='main-page-header-subtitles' href='/past'>past</a>
+          <a className='main-page-header-subtitles' href='/comments'>comments</a>
+          <a className='main-page-header-subtitles' href='/ask'>ask</a>
+          <a className='main-page-header-subtitles' href='/show'>show</a>
+          <a className='main-page-header-subtitles' href='/jobs'>jobs</a>
+          <a className='main-page-header-subtitles-no-line' href='/submit'>submit</a>
+          <a id='main-page-header-login' href='/login'>login</a>
         </div>
         <div className='main-page-body'>
           <ol className='main-page-list-container'>
