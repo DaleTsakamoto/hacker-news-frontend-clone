@@ -11,6 +11,7 @@
   margin: 6px 10vw;
   background-color: rgb(246, 246, 239);
   pointer-events: none;
+  font-family: Verdana, Geneva, sans-serif;
 }
 
 .main-page-header-container{
@@ -22,7 +23,7 @@
 }
 
 .main-page-header-container > h1{
-  font-family: Verdana, Geneva, sans-serif;
+  /* font-family: Verdana, Geneva, sans-serif; */
   /* padding: 1px; */
   font-size: 10pt;
   font-weight: 900;
@@ -45,4 +46,34 @@
   border: .5px solid white;
   /* margin: .5px; */
   cursor: pointer;
+}
+
+.main-page-list-container{
+  counter-reset: count;
+  list-style-type: none;
+  margin-left: -32px;
+  font-size: 13px;
+  /* font-family: Verdana, Geneva, sans-serif; */
+}
+
+.main-page-list-container li::before{
+  counter-increment: count;
+  content: counter(count) ". ";
+  color: #828282;
+}
+
+.main-page-list-container > li{
+  margin-bottom: 0;
+}
+
+.main-page-ind-story-stats{
+  display: flex;
+  flex-direction: row;
+  font-size: 9px;
+  color: #828282;
+}
+
+.main-page-ind-story-score{
+  margin-top: 0;
+  margin-left: 19px;
 }
