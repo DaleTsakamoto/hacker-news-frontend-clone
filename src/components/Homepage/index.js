@@ -11,21 +11,29 @@ const topStories = useSelector(state => state.stories.top);
 // const [topStories, setTopStories] = useState({})
 const [isLoaded, setIsLoaded] = useState(false)
 
+const noDatabase = () => {
+  alert("I need a database, a database.  My kingdom for a database!")
+}
+  
+const hide = () => {
+  alert("What are you trying to hide?")
+}
+
+  const random = () => {
+  return Math.floor(Math.random() * (Math.floor(200) - Math.ceil(1)) + Math.ceil(1))
+}
+  
 useEffect(() => {
   dispatch(storiesActions.topStoriesSearch())
-    // .then((res) => {
-    //   setTopStories(res)
-    // })
   .then(() => setIsLoaded(true))
 },[dispatch])
 
-  return isLoaded && topStories &&(
+  return isLoaded && (
     <div className="main-page-container">
-      {/* {console.log(topStories)} */}
       <div className="main-page-center">
         <div className='main-page-header-container'>
           <a href='/'>
-            <img src={`../logo.png`} className='main-page-header-logo'/>
+            <img src={`../logo.png`} className='main-page-header-logo' alt='hacker-logo'/>
           </a>
           <h1>Hacker News</h1>
           <a className='main-page-header-subtitles' href='/new'>new</a>
@@ -42,28 +50,35 @@ useEffect(() => {
             {Object.values(topStories).map((sto, idx) => {
               // let currentTime = Date.now()
               // let ms = (currentTime - sto.time)
-              let date = new Date(sto.time * 1000).toString()
+              let dif = Math.abs(new Date(sto.time * 1000) - (Date.now()))
+              let date = Math.round(dif/(1000 * 3600))
               let showUrl = ''
               if (sto.url) {
+                if (sto.url.includes('www')) {
+                  showUrl = sto.url.split('.')[1]
+                }
                 showUrl = sto.url.split('/')[2]
               }
               return (
-                <>
+                <div key={idx}>
                   <div className='main-page-ind-title'>
-                    <li key={idx}>{sto.title}</li>
+                    <li>
+                      <div onClick={noDatabase} className='main-page-ind-triangle'></div>
+                      <a href={sto.url}>{sto.title}</a>
+                    </li>
                     <a href={sto.url}>({showUrl})</a>
                   </div>
                   <div className='main-page-ind-story-stats'>
-                    <p className='main-page-ind-story-score'> {sto.score} points by {sto.by} {date}</p>  
+                    <p className='main-page-ind-story-score'> {sto.score} points by {sto.by} {date} {date > 1 ? 'hours' : 'hour'} ago <a onClick={hide} className='main-page-ind-hide'> hide</a> <span onClick={noDatabase} className='main-page-ind-comments'>{random()} comments</span></p>  
                   </div>
-                </>
+                </div>
               )
             })
             }
           </ol>
         </div>
       </div>
-    </div>
+      </div>
   );
 }
 

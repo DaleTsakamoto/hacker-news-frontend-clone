@@ -1,4 +1,3 @@
-
 const FIND_TOP_STORIES = 'stories/findTopStories'
 
 const findTopStories = (stories) => {
@@ -23,7 +22,7 @@ export const topStoriesSearch = () => async (dispatch) => {
   .then((res) => res.json())
   .then(async(data) => {
     for (let i = 0; i <= 29; i++){
-      await topStorySearch(data[i])
+        await topStorySearch(data[i])
     }
   })
   dispatch(findTopStories(storiesObj));

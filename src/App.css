@@ -1,4 +1,4 @@
-.main-page-container {
+/* .main-page-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -24,5 +24,5 @@
 .main-page-header-container > h1{
   font-family: Verdana, Geneva, sans-serif;
   /* padding: 1px; */
-  font-size: 10pt;
-}
+  /* font-size: 10pt;
+} */
