@@ -7,7 +7,7 @@ import * as storiesActions from '../../store/stories';
 function Homepage() {
 const dispatch = useDispatch()
 
-const [topStories, setTopStories] = useState([]);
+const topStories = useSelector(state => state.stories.top);
 const [isLoaded, setIsLoaded] = useState(false)
 
 useEffect(() => {
@@ -27,12 +27,14 @@ useEffect(() => {
         </div>
         <div className='main-page-body'>
         <p>
-            Hi let's hack some stuff
+            Stories from {new Date().getFullYear}
         </p>
           <ol>
-          {topStories.map((story) => {
-            <li>{story.title}</li>
-          })}
+            {Object.values(topStories).map((sto, idx) => {
+              return (
+                <li key={idx}>{sto.title}</li>
+              )
+            })}
           </ol>
         </div>
       </div>

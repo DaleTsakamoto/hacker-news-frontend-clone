@@ -21,7 +21,7 @@ export const topStoriesSearch = () => async (dispatch) => {
   await fetch(`https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`)
   .then((res) => res.json())
   .then(async(data) => {
-    for (let i = 0; i <= 30; i++){
+    for (let i = 0; i <= 29; i++){
       await topStorySearch(data[i])
     }
   })
