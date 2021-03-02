@@ -1,23 +1,22 @@
 import './Homepage.css';
 import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import * as storiesActions from '../../store/stories';
 
 function Homepage() {
+const dispatch = useDispatch()
 
 const [topStories, setTopStories] = useState([]);
 const [isLoaded, setIsLoaded] = useState(false)
 
-  useEffect(async () => {
-    const res = await fetch(`https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty`)
-      .then(async(res) => {
-        for (let storyId of res) {
-          const fullStory = await fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`)
-          .then((fullStory) => setTopStories([...topStories, fullStory]))
-        }
-      }).then(() => setIsLoaded(true))
-  }, [])
+useEffect(() => {
+  dispatch(storiesActions.topStoriesSearch())
+    .then(() => setIsLoaded(true))
+}, [dispatch])
 
 
-  return (
+  return isLoaded &&(
     <div className="main-page-container">
       <div className="main-page-center">
         <div className='main-page-header-container'>
