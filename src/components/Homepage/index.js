@@ -15,16 +15,22 @@ const topStories = useSelector(state => state.stories.top);
 const [isLoaded, setIsLoaded] = useState(false)
 const [cycle, setCycle] = useState(0)
   
-useEffect(() => {
-  dispatch(storiesActions.storiesSearch('top'))
-  .then(() => setIsLoaded(true))
-},[dispatch])
+  useEffect(() => {
+    let type = 'top'
+    dispatch(storiesActions.storiesSearch(type, cycle))
+      .then(() => {
+        if (document.querySelector(".stories-list-container")) {
+          document.querySelector(".stories-list-container").style.counterReset = `count ${(cycle)* 30}`
+      }
+    })
+    .then(() => setIsLoaded(true))
+},[dispatch, cycle])
 
   return isLoaded && (
     <div className="main-page-container">
       <div className="main-page-center">
         <Header />
-        <StoriesBody stories={topStories} />
+        <StoriesBody stories={topStories} setCycle={setCycle} cycle={cycle} />
         <Footer />
       </div>
     </div>

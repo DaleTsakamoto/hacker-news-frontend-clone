@@ -25,12 +25,12 @@ const storySearch = async (storyId, i) => {
   return 
 }
 
-export const storiesSearch = (type) => async (dispatch) => {
+export const storiesSearch = (type, cycle) => async (dispatch) => {
   storiesObj = {};
   await fetch(`https://hacker-news.firebaseio.com/v0/${type === 'new' ? 'newstories' : 'topstories'}.json?print=pretty`)
   .then((res) => res.json())
   .then(async(data) => {
-    for (let i = 0; i <= 29; i++){
+    for (let i = (cycle * 30); i <= (cycle * 30 + 29); i++){
         await storySearch(data[i], i)
     }
   })

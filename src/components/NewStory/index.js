@@ -12,18 +12,25 @@ function NewStory() {
 const dispatch = useDispatch()
 
 const newStories = useSelector(state => state.stories.new);
-const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [cycle, setCycle] = useState(0)
   
-useEffect(() => {
-  dispatch(storiesActions.storiesSearch('new'))
-  .then(() => setIsLoaded(true))
-},[dispatch])
+  useEffect(() => {
+  let type = 'new'
+    dispatch(storiesActions.storiesSearch(type, cycle))
+    .then(() => {
+      if (document.querySelector(".stories-list-container")) {
+        document.querySelector(".stories-list-container").style.counterReset = `count ${(cycle)* 30}`
+      }
+    })
+    .then(() => setIsLoaded(true))
+},[dispatch, cycle])
 
   return isLoaded && (
     <div className="main-page-container">
       <div className="main-page-center">
         <Header />
-        <StoriesBody stories={newStories} />
+        <StoriesBody stories={newStories} setCycle={setCycle} cycle={cycle} />
         <Footer />
       </div>
     </div>

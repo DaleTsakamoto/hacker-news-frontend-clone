@@ -2,7 +2,7 @@ import React from 'react'
 
 import './StoriesBody.css';
 
-function StoriesBody({ stories }) {
+function StoriesBody({ stories, setCycle, cycle }) {
 
 const noDatabase = () => {
   alert("I need a database, a database.  My kingdom for a database!")
@@ -44,7 +44,7 @@ const hide = () => {
                 <a href={sto.url}>{showUrl ? `(${showUrl})` : ''}</a>
               </div>
               <div className='stories-ind-story-stats'>
-                <p className='stories-ind-story-score'> {sto.score === 1 ? `${sto.score} point` : `${sto.score} points`} by {sto.by} {date} ago <a onClick={hide} className='stories-ind-hide'> hide</a> <span onClick={noDatabase} className='stories-ind-comments'> {sto.kids ? sto.kids.length : 0} comments</span></p>  
+                <p className='stories-ind-story-score'> {sto.score === 1 ? `${sto.score} point` : `${sto.score} points`} by {sto.by} {date} ago <a onClick={hide} className='stories-ind-hide'> hide</a> <span onClick={noDatabase} className='stories-ind-comments'> {sto.kids ? sto.kids.length : 0} {sto.kids && sto.kids.length === 1 ? 'comment' : 'comments'}</span></p>  
               </div>
             </div>
         
@@ -52,7 +52,9 @@ const hide = () => {
         })
         }
       </ol>
-      <p className='stories-more'> More </p>
+      <div className='stories-more' onClick={() => {
+        setCycle(cycle + 1)
+      }}> More </div>
     </div>
   );
 }
