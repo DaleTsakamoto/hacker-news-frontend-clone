@@ -8,8 +8,8 @@ function Header() {
         <img src={`../logo.png`} className='header-logo' alt='hacker-logo' />
       </a>
       <h1>Hacker News</h1>
-      <a className='header-subtitles' href='/new'>new</a>
-      <a className='header-subtitles' href='/past'>past</a>
+      <a className='header-subtitles' href='/newest'>new</a>
+      <a className='header-subtitles' href='/front'>past</a>
       <a className='header-subtitles' href='/comments'>comments</a>
       <a className='header-subtitles' href='/ask'>ask</a>
       <a className='header-subtitles' href='/show'>show</a>

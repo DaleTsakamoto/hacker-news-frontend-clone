@@ -4,18 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../Footer'
 import Header from '../Header'
 import StoriesBody from '../StoriesBody'
-import './Homepage.css';
+import '../Homepage/Homepage.css';
 
 import * as storiesActions from '../../store/stories';
 
-function Homepage() {
+function NewStory() {
 const dispatch = useDispatch()
 
-const topStories = useSelector(state => state.stories.top);
+const newStories = useSelector(state => state.stories.new);
 const [isLoaded, setIsLoaded] = useState(false)
   
 useEffect(() => {
-  dispatch(storiesActions.storiesSearch('top'))
+  dispatch(storiesActions.storiesSearch('new'))
   .then(() => setIsLoaded(true))
 },[dispatch])
 
@@ -23,11 +23,11 @@ useEffect(() => {
     <div className="main-page-container">
       <div className="main-page-center">
         <Header />
-        <StoriesBody stories={topStories} />
+        <StoriesBody stories={newStories} />
         <Footer />
       </div>
     </div>
   );
 }
 
-export default Homepage;
+export default NewStory;
