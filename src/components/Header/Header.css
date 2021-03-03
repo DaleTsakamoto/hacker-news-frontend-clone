@@ -1,0 +1,55 @@
+.header-container{
+  display: flex;
+  height: 26px;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(255,102,1);
+}
+
+.header-logo{
+  height: 20px;
+  width: 20px;
+  border: .5px solid white;
+  /* margin: .5px; */
+  cursor: pointer;
+}
+
+.header-container > h1{
+  /* font-family: Verdana, Geneva, sans-serif; */
+  /* padding: 1px; */
+  font-size: 10pt;
+  font-weight: 900;
+  margin-left: 2px;
+  margin-right: 8px;
+}
+
+.header-container a{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1px 2px;
+}
+
+.header-subtitles, .header-subtitles-no-line{
+  text-decoration: none;
+  color: black;
+  font-size: 10pt;
+  cursor: pointer;
+}
+
+.header-subtitles::after{
+  content: '|';
+  margin-left: 2px;
+}
+
+#header-login{
+  text-decoration: none;
+  color: black;
+  font-size: 10pt;
+  cursor: pointer;
+  text-align: end;
+  margin-left: auto;
+  margin-right: 4px;
+}
