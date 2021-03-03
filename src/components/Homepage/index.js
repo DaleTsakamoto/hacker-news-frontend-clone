@@ -13,6 +13,7 @@ const dispatch = useDispatch()
 
 const topStories = useSelector(state => state.stories.top);
 const [isLoaded, setIsLoaded] = useState(false)
+const [cycle, setCycle] = useState(0)
   
 useEffect(() => {
   dispatch(storiesActions.storiesSearch('top'))

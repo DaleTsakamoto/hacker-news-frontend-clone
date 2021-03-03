@@ -2,7 +2,7 @@ import React from 'react'
 
 import './StoriesBody.css';
 
-function StoriesBody({stories}) {
+function StoriesBody({ stories }) {
 
 const noDatabase = () => {
   alert("I need a database, a database.  My kingdom for a database!")

@@ -32,16 +32,19 @@
   margin: 1px 2px;
 }
 
-.header-subtitles, .header-subtitles-no-line{
+.header-subtitles{
   text-decoration: none;
   color: black;
   font-size: 10pt;
   cursor: pointer;
 }
 
-.header-subtitles::after{
-  content: '|';
-  margin-left: 2px;
+.header-subtitles__selected{
+  color: white;
+}
+
+.header-subtitles-line{
+  font-size: 13px;
 }
 
 #header-login{
