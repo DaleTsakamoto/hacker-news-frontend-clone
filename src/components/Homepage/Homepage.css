@@ -48,6 +48,10 @@
   color: black;
 }
 
+.main-page-ind-title > li > a:visited{
+  color: #6b6a6a;
+}
+
 .main-page-ind-triangle{
   width: 0;
   height: 0;

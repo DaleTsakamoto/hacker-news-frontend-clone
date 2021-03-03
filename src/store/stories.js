@@ -8,11 +8,11 @@ const findTopStories = (stories) => {
 }
 
 let storiesObj = {}
-const topStorySearch = async (storyId) => {
+const topStorySearch = async (storyId, i) => {
   await fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`)
   .then((res) => res.json())
   .then((data) => {
-    storiesObj[storyId] = data
+    storiesObj[i] = data
   })
   return 
 }
@@ -22,7 +22,7 @@ export const topStoriesSearch = () => async (dispatch) => {
   .then((res) => res.json())
   .then(async(data) => {
     for (let i = 0; i <= 29; i++){
-        await topStorySearch(data[i])
+        await topStorySearch(data[i], i)
     }
   })
   dispatch(findTopStories(storiesObj));
