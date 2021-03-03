@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import './StoriesBody.css';
+import * as storiesActions from '../../store/stories';
 
-function StoriesBody({ stories, setCycle, cycle }) {
+function StoriesBody({type}) {
+const dispatch = useDispatch()
+const stories = useSelector(state => state.stories.stories);
+const [isLoaded, setIsLoaded] = useState(false)
+const [cycle, setCycle] = useState(0)
+  
+  useEffect(() => {
+    dispatch(storiesActions.storiesSearch(type, cycle))
+      .then(() => {
+        if (document.querySelector(".stories-list-container")) {
+          document.querySelector(".stories-list-container").style.counterReset = `count ${(cycle)* 30}`
+      }
+    })
+    .then(() => setIsLoaded(true))
+},[dispatch, cycle])
 
 const noDatabase = () => {
   alert("I need a database, a database.  My kingdom for a database!")
@@ -11,7 +27,7 @@ const noDatabase = () => {
 const hide = () => {
   alert("What are you trying to hide?")
 }
-  return (
+  return isLoaded &&(
     <div className='stories-body'>
       <ol className='stories-list-container'>
         {Object.values(stories).map((sto, idx) => {

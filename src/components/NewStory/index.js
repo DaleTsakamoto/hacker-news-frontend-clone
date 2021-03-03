@@ -1,36 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 
 import Footer from '../Footer'
 import Header from '../Header'
 import StoriesBody from '../StoriesBody'
 import '../Homepage/Homepage.css';
 
-import * as storiesActions from '../../store/stories';
-
 function NewStory() {
-const dispatch = useDispatch()
+  let type = 'newstories'
 
-const newStories = useSelector(state => state.stories.new);
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [cycle, setCycle] = useState(0)
-  
-  useEffect(() => {
-  let type = 'new'
-    dispatch(storiesActions.storiesSearch(type, cycle))
-    .then(() => {
-      if (document.querySelector(".stories-list-container")) {
-        document.querySelector(".stories-list-container").style.counterReset = `count ${(cycle)* 30}`
-      }
-    })
-    .then(() => setIsLoaded(true))
-},[dispatch, cycle])
-
-  return isLoaded && (
+  return (
     <div className="main-page-container">
       <div className="main-page-center">
         <Header />
-        <StoriesBody stories={newStories} setCycle={setCycle} cycle={cycle} />
+        <StoriesBody type={type} />
         <Footer />
       </div>
     </div>
