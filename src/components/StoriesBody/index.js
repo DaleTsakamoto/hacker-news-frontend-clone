@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './StoriesBody.css';
+import Footer from '../Footer'
+import Header from '../Header'
 import * as storiesActions from '../../store/stories';
 
 function StoriesBody({type}) {
@@ -27,7 +29,10 @@ const noDatabase = () => {
 const hide = () => {
   alert("What are you trying to hide?")
 }
-  return isLoaded &&(
+  return isLoaded && (
+    <div className="stories-container">
+      <div className="stories-center">
+      <Header />
     <div className='stories-body'>
       <ol className='stories-list-container'>
         {Object.values(stories).map((sto, idx) => {
@@ -71,6 +76,9 @@ const hide = () => {
       <div className='stories-more' onClick={() => {
         setCycle(cycle + 1)
       }}> More </div>
+        </div>
+        <Footer />
+        </div>
     </div>
   );
 }

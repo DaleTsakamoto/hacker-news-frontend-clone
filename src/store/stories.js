@@ -1,5 +1,4 @@
 const FIND_STORIES = 'stories/findStories'
-// const FIND_NEW_STORIES = 'stories/findNewStories'
 
 const findStories = (stories) => {
   return {
@@ -7,13 +6,6 @@ const findStories = (stories) => {
     stories
   }
 }
-
-// const findNewStories = (stories) => {
-//   return {
-//     type: FIND_NEW_STORIES,
-//     stories
-//   }
-// }
 
 let storiesObj;
 const storySearch = async (storyId, i) => {
