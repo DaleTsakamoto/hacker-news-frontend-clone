@@ -16,7 +16,7 @@
 
 
 .main-page-center {
-  height: 1280px;
+  height: 1260px;
   width: 86vw;
   margin: 6px 8vw;
   background-color: rgb(246, 246, 239);
@@ -147,5 +147,11 @@
 
 .main-page-ind-story-score{
   margin-top: 0;
+  margin-left: 35px;
+}
+
+.main-page-more{
+  margin-top: -10px;
+  font-size: 12.5px;
   margin-left: 35px;
 }

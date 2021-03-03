@@ -71,6 +71,7 @@ useEffect(() => {
             })
             }
           </ol>
+          <p className='main-page-more'> More </p>
         </div>
       <Footer />
       </div>
