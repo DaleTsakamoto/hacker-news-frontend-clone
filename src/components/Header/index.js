@@ -2,13 +2,17 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 
-function Header() {
+function Header({noDatabase}) {
   const comments = () => {
     alert("Sorry no comments until they give me an API that can query more than one at a time")
   }
 
   const past = () => {
     alert("Let's forget about the past and look to the future")
+  }
+
+  const job = () => {
+    alert("I would be the perfect fit for this job, and think about all the jokes you'd get every day")
   }
 
   return (
@@ -27,11 +31,11 @@ function Header() {
       <div className='header-subtitles-line'> |</div>
       <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/show'>show</NavLink>
       <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/jobs'>jobs</NavLink>
+      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/jobs' onClick={job}>jobs</NavLink>
       <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/submit'>submit</NavLink>
+      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/submit' onClick={noDatabase}>submit</NavLink>
       <div className='header-subtitles-line'> |</div>
-      <a id='header-login' href='/login'>login</a>
+      <NavLink id='header-login' to='/login' onClick={noDatabase}>login</NavLink>
     </div>
   )
 }
