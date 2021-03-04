@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink, Link } from 'react-router-dom';
 
 import './StoriesBody.css';
 import Footer from '../Footer'
 import Header from '../Header'
 import * as storiesActions from '../../store/stories';
 
-function StoriesBody({type}) {
+function StoriesBody({ type }) {
+const scrollTop = useRef(null)
 const dispatch = useDispatch()
 const stories = useSelector(state => state.stories.stories);
 const [isLoaded, setIsLoaded] = useState(false)
@@ -31,6 +33,7 @@ const hide = () => {
 }
   return isLoaded && (
     <div className="stories-container">
+      <div ref={scrollTop} id='hide-me'></div>
       <div className="stories-center">
       <Header />
     <div className='stories-body'>
@@ -74,8 +77,9 @@ const hide = () => {
         }
       </ol>
       <div className='stories-more' onClick={() => {
-        setCycle(cycle + 1)
-      }}> More </div>
+            setCycle(cycle + 1)
+            scrollTop.current.scrollIntoView()
+          }}>More</div>
         </div>
         <Footer />
         </div>

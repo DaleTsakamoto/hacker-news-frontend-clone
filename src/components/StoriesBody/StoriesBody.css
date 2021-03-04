@@ -103,3 +103,7 @@
   margin: -10px 0 8px 35px;
   font-size: 12.5px;
 }
+
+.hide-me{
+  display: none;
+}
