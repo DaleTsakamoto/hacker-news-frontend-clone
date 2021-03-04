@@ -21,7 +21,7 @@ function StoriesBody({ type }) {
       }
     })
     .then(() => setIsLoaded(true))
-},[dispatch, cycle])
+  },[dispatch, cycle])
 
   const noDatabase = () => {
     alert("I need a database, a database.  My kingdom for a database!")
@@ -30,13 +30,15 @@ function StoriesBody({ type }) {
   const hide = () => {
     alert("What are you trying to hide?")
   }
+
   return isLoaded && (
     <div className="stories-container">
       <div ref={scrollTop} id='hide-me'></div>
       <div className="stories-center">
         <Header noDatabase={noDatabase} />
           <div className='stories-body'>
-            <ol className='stories-list-container'>
+          <ol className='stories-list-container'>
+            {/* Iterate over the comments and use info from each one to populate */}
               {Object.values(stories).map((sto, idx) => {
                 let dif = Math.abs(new Date(sto.time * 1000) - (Date.now()))
                 let date;
@@ -74,7 +76,9 @@ function StoriesBody({ type }) {
                 )
               })
               }
-            </ol>
+          </ol>
+          {/* Create a cycle counter that keeps track of how many times the fetch request
+          is made to the API, then change the list numbers accordingly*/}
             <div className='stories-more' onClick={() => {
               setCycle(cycle + 1)
               scrollTop.current.scrollIntoView()
