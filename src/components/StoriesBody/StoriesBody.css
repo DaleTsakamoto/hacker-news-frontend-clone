@@ -19,7 +19,6 @@
   list-style-type: none;
   margin-left: -40px;
   font-size: 13px;
-  /* font-family: Verdana, Geneva, sans-serif; */
 }
 
 .stories-list-container li::before{
@@ -125,7 +124,29 @@
 
 @media only screen and (max-width: 750px) {
   .stories-center {
-    height: 1280px;
+    height: 1370px;
     margin: 0 0;
+  }
+
+  .stories-list-container{
+    font-size: 14px;
+  }
+
+  .stories-ind-title > a{
+    font-size: 11px;
+  }
+
+  .stories-ind-story-stats{
+    font-size: 10px;
+  }
+
+  .stories-more{
+    font-size: 13.5px;
+  }
+
+  .stories-ind-triangle{
+    border-left: 4.5px solid transparent;
+    border-right: 4.5px solid transparent;
+    border-bottom: 9px solid #949292;
   }
 }
