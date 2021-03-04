@@ -20,21 +20,25 @@ function Header({noDatabase}) {
       <a href='/'>
         <img src={`../logo.png`} className='header-logo' alt='hacker-logo' />
       </a>
-      <h1>Hacker News</h1>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/newest'>new</NavLink>
-      <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/front' onClick={past}>past</NavLink>
-      <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/newcomments' onClick={comments}>comments</NavLink>
-      <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/ask'>ask</NavLink>
-      <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/show'>show</NavLink>
-      <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/jobs' onClick={job}>jobs</NavLink>
-      <div className='header-subtitles-line'> |</div>
-      <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/submit' onClick={noDatabase}>submit</NavLink>
-      <div className='header-subtitles-line'> |</div>
+      <div className='header-subcontainer'>
+        <h1>Hacker News</h1>
+        <div className='header-navigation'>
+          <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/newest'>new</NavLink>
+          <div className='header-subtitles-line'> |</div>
+          <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/front' onClick={past}>past</NavLink>
+          <div className='header-subtitles-line'> |</div>
+          <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/newcomments' onClick={comments}>comments</NavLink>
+          <div className='header-subtitles-line'> |</div>
+          <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/ask'>ask</NavLink>
+          <div className='header-subtitles-line'> |</div>
+          <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/show'>show</NavLink>
+          <div className='header-subtitles-line'> |</div>
+          <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/jobs' onClick={job}>jobs</NavLink>
+          <div className='header-subtitles-line'> |</div>
+          <NavLink activeClassName="header-subtitles__selected" className='header-subtitles' to='/submit' onClick={noDatabase}>submit</NavLink>
+          <div className='header-subtitles-line'> |</div>
+        </div>
+      </div>
       <NavLink id='header-login' to='/login' onClick={noDatabase}>login</NavLink>
     </div>
   )

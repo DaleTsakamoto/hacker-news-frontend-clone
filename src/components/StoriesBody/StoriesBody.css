@@ -124,4 +124,7 @@
 }
 
 @media only screen and (max-width: 750px) {
+  .stories-center {
+    margin: 0 0;
+  }
 }
