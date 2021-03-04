@@ -19,19 +19,19 @@ function Footer() {
     <div className='footer-container'>
       <h2>Applications are viewable at my <a className='footer-h2-site' href='https://daletsakamoto.github.io/'>site</a> 2021</h2>
       <p onClick={info}>Guidelines | FAQ | Lists | API | Security | Legal | Apply to YC | Contact</p>
-      <div className='signup-special-container'>
+      <div className='footer-search-container'>
         <form onSubmit={handleSearch}>
         <label>
           Search: 
           <input
-          className='signup-special-input__1'
+          className='footer-search-bar'
           value={search}
           type='text'
           onChange={ e => setSearch(e.target.value) }
           required
           />
         </label>
-        <input className='tasks__hidden-submit' type="submit" />
+        <input className='footer__hidden-submit' type="submit" />
         </form>
       </div>
     </div>
